@@ -1,0 +1,36 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Calibri, Helvetica, Arial, sans serif;
+}
+
+.flag{
+    float: left;
+}
+
+.user{
+    margin-top: 5px;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: lightgreen;
+}
+.namebold{
+    font-weight: bold;
+}
+
+.mainBar{
+    margin-bottom: 50px;
+}
+
+.navbar {
+    min-height: 55px;
+    max-height: 55px;
+}
+
+.fa-home{
+    font-size: 30px;
+}
+.fa-home:hover{
+    color: #EA6212;
+}

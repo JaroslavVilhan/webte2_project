@@ -1,0 +1,15 @@
+.bold{
+    font-weight: bold;
+    color: darkred;
+}
+
+.homePage-card{
+    position: absolute;
+    right: 15px;
+}
+
+.homePage-card2{
+    position: absolute;
+    left: 15%;
+    max-width: 70%;
+}

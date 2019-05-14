@@ -1,0 +1,12 @@
+.btn-secondary:hover {
+    cursor:pointer;
+}
+
+.submitBut{
+    position: absolute;
+    right: 15px;
+}
+
+.bold{
+    font-weight: bold;
+}

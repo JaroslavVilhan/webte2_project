@@ -1,0 +1,120 @@
+{
+  "defLang": {
+      "1" : "en",
+      "2" : "sk"
+  },
+  "multiple": {
+    "en" : "Logout",
+    "sk" : "Odhlásiť sa"
+  },
+  "homePage": {
+    "headTitle": {
+      "en" : "Home",
+      "sk" : "Domov"
+    },
+    "title" : {
+      "en" : "Hello",
+      "sk" : "Vitaj"
+    },
+    "adminPage1Title" : {
+      "en" : "Insert results",
+      "sk" : "Zadať výsledky"
+    },
+    "adminPage2Title" : {
+      "en" : "Insert students",
+      "sk" : "Zadať študentov"
+    },
+    "adminPage3Title" : {
+      "en" : "Send mail",
+      "sk" : "Poslať mail"
+    },
+    "userPage1Title" : {
+      "en" : "Results",
+      "sk" : "Výsledky"
+    },
+    "userPage2Title" : {
+      "en" : "Team evaluation",
+      "sk" : "Hodnotenie tímu"
+    },
+    "adminPage1Content" : {
+      "en" : "Entering results via form and also option for overview.",
+      "sk" : "Zadávanie výsledkov prostredníctvom formuláru a aj možnosť následného prehľadu."
+    },
+    "adminPage2Content" : {
+      "en" : "Entering students via form, granting consent for the distribution of points, viewing teams, team statistics.",
+      "sk" : "Zadávanie študentov prostredníctvom formuláru, výpis jednotlivých tímov, udeľovanie súhlasu o prerozdelení bodov, štatistické údaje o jednotlivých tímoch."
+    },
+    "adminPage3Content" : {
+      "en" : "Generating and distributing passwords and data needed to login to the server.",
+      "sk" : "Vygenerovanie a rozdistribuovanie hesiel a údajov potrebných pre prihlásenie sa na server."
+    },
+    "userPage1Content" : {
+      "en" : "Viewing results from all courses, where has been added the evaluation.",
+      "sk" : "Zobrazenie výsledkov zo všetkých predmetov, v ktorých bolo zadané hodnotenie."
+    },
+    "userPage2Content" : {
+      "en" : "Distributing points and voting for points divided by team members.",
+      "sk" : "Prerozdeľovanie a následné odsúhlasenie bodov medzi jednotlivými členmi tímu."
+    },
+    "pageGo" : {
+      "en" : "Go",
+      "sk" : "Prejsť"
+    }
+  },
+  "loginPage": {
+    "headTitle": {
+      "en" : "Log In",
+      "sk" : "Prihlásiť sa"
+    },
+    "title" : {
+      "en" : "Log In",
+      "sk" : "Prihlásenie"
+    },
+    "name" : {
+      "en" : "Username",
+      "sk" : "Meno"
+    },
+    "password" : {
+      "en" : "Password",
+      "sk" : "Heslo"
+    },
+    "login" : {
+      "en" : "Login",
+      "sk" : "Prihlásiť sa"
+    },
+    "loginAs1" : {
+      "en" : "LDAP login",
+      "sk" : "LDAP prihlásenie"
+    },
+    "loginAs2" : {
+      "en" : "Local login",
+      "sk" : "Lokálne prihlásenie"
+    },
+    "loginAs3" : {
+      "en" : "Administrator",
+      "sk" : "Administrátor"
+    },
+    "loginError" : {
+      "en" : "Bad login or password",
+      "sk" : "Zlé prihlasovacie meno alebo heslo"
+    }
+  },
+  "adminPage1": {
+    ".": {
+      "en": ".",
+      "sk": "."
+    }
+  },
+  "adminPage2": {
+    ".": {
+      "en": ".",
+      "sk": "."
+    }
+  },
+  "adminPage3": {
+    ".": {
+      "en": ".",
+      "sk": "."
+    }
+  }
+}
