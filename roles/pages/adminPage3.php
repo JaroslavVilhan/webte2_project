@@ -3,7 +3,7 @@ require_once("../../basic_doc_fns.php");
 
 session_start();
 if(!isset($_SESSION['user'])) {
-    header('Location: login.php');
+    header('Location: ../../login.php');
 }
 
 $words = getDictionary('../../');

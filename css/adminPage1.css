@@ -1,0 +1,9 @@
+#selForm1{
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid darkslategray;
+    box-shadow: 5px 10px 8px #888888;
+}
+#selPredmetButton{
+    min-width: 107px;
+}

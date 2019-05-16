@@ -100,9 +100,61 @@
     }
   },
   "adminPage1": {
-    ".": {
-      "en": ".",
-      "sk": "."
+    "selectTitle": {
+      "en": "Options",
+      "sk": "Možnosti"
+    },
+    "option1": {
+      "en": "Import results",
+      "sk": "Zadať výsledky"
+    },
+    "option2": {
+      "en": "Show results",
+      "sk": "Zobraziť výsledky"
+    },
+    "option3": {
+      "en": "Delete course",
+      "sk": "Vymazať predmet"
+    },
+    "selButton": {
+      "en": "Select",
+      "sk": "Vybrať"
+    },
+    "selCourseButton": {
+      "en": "Add new",
+      "sk": "Pridať nový"
+    },
+    "formYear": {
+      "en": "Year",
+      "sk": "Rok"
+    },
+    "formCourse": {
+      "en": "Course",
+      "sk": "Predmet"
+    },
+    "formCourseChoose": {
+      "en": "Choose from existing",
+      "sk": "Vyber z existujúcich"
+    },
+    "formNewCourse": {
+      "en": "New Course",
+      "sk": "Nový predmet"
+    },
+    "formFile": {
+      "en": "File",
+      "sk": "Súbor"
+    },
+    "formFileDelimiter": {
+      "en": "Delimiter",
+      "sk": "Oddeľovač"
+    },
+    "formSubmit": {
+      "en": "Submit",
+      "sk": "Odoslať"
+    },
+    "duplicateError": {
+      "en": "Duplicate name of course",
+      "sk": "Duplicitný názov predmetu"
     }
   },
   "adminPage2": {

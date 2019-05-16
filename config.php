@@ -1,7 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Vilhan
- * Date: 10.5.2019
- * Time: 12:03
- */
+
+$hostname = "localhost";
+$username = "xvilhanj";
+$password = "CcXQY2InLIfD";
+$dbname = "webteUloha1";
+$dbname2 = "webteUloha2";
