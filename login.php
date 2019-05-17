@@ -82,7 +82,7 @@ if(isset($_POST['login']) && isset($_POST['password'])){
             <div class="page-header my-4">
                 <h1><?php echo $words['loginPage']['title'][$lang]?></h1>
             </div>
-            <form id="loginForm" action="" method="post">
+            <form id="loginForm" action="login.php" method="post">
                 <div class="form-group">
                     <div class="form-group">
                         <input type="text" class="form-control" id="login" name="login" placeholder="<?php echo $words['loginPage']['name'][$lang]?>" required>
@@ -95,13 +95,13 @@ if(isset($_POST['login']) && isset($_POST['password'])){
                 <div class="form-group">
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-secondary active">
-                            <input type="radio" name="options" id="option1" autocomplete="off" checked><?php echo $words['loginPage']['loginAs1'][$lang]."\n"?>
+                            <input type="radio" name="options" id="option1" checked><?php echo $words['loginPage']['loginAs1'][$lang]."\n"?>
                         </label>
                         <label class="btn btn-secondary">
-                            <input type="radio" name="options" id="option2" autocomplete="off"><?php echo $words['loginPage']['loginAs2'][$lang]."\n"?>
+                            <input type="radio" name="options" id="option2"><?php echo $words['loginPage']['loginAs2'][$lang]."\n"?>
                         </label>
                         <label class="btn btn-secondary">
-                            <input type="radio" name="options" id="option3" autocomplete="off"><?php echo $words['loginPage']['loginAs3'][$lang]."\n"?>
+                            <input type="radio" name="options" id="option3"><?php echo $words['loginPage']['loginAs3'][$lang]."\n"?>
                         </label>
                     </div>
                 </div>

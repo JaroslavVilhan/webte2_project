@@ -120,6 +120,18 @@
       "en": "Select",
       "sk": "Vybrať"
     },
+    "form1Head": {
+      "en": "Importing results",
+      "sk": "Importovanie výsledkov"
+    },
+    "form2Head": {
+      "en": "Displaying results",
+      "sk": "Zobrazovanie výsledkov"
+    },
+    "form3Head": {
+      "en": "Deleting course",
+      "sk": "Vymazanie predmetu"
+    },
     "selCourseButton": {
       "en": "Add new",
       "sk": "Pridať nový"
@@ -152,9 +164,33 @@
       "en": "Submit",
       "sk": "Odoslať"
     },
+    "formView": {
+      "en": "Display",
+      "sk": "Zobraziť"
+    },
+    "formDelete": {
+      "en": "Delete",
+      "sk": "Vymazať"
+    },
+    "formChoose": {
+      "en": "Choose",
+      "sk": "Vyber"
+    },
     "duplicateError": {
       "en": "Duplicate name of course",
       "sk": "Duplicitný názov predmetu"
+    },
+    "fillError": {
+      "en": "No option was selected",
+      "sk": "Nebola vybraná možnosť"
+    },
+    "successError": {
+      "en": "Course was successfully deleted",
+      "sk": "Predmet bol úspešne vymazaný"
+    },
+    "viewPDF": {
+      "en": "View PDF",
+      "sk": "Zobraziť PDF"
     }
   },
   "adminPage2": {

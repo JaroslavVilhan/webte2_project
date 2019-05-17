@@ -13,4 +13,6 @@ $file = 'adminPage2';
 
 doHTMLHeader($lang, $words['homePage']['adminPage2Title'][$lang], "adminPage2", '../../');
 require_once("../navBar.php");
+
+
 doHTMLFooter();
