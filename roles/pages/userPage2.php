@@ -5,6 +5,9 @@ session_start();
 if(!isset($_SESSION['user'])) {
     header('Location: ../../login.php');
 }
+if($_SESSION['userType'] == 'admin') {
+    header("Location: ../../index.php");
+}
 
 $words = getDictionary('../../');
 $lang = getCurrentLanguage($_GET['lang'], $words);

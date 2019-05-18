@@ -54,6 +54,7 @@ if(isset($_POST['login']) && isset($_POST['password'])){
 
             $_SESSION['user'] = $usrName ." ". $usrSurname;
             $_SESSION['userType'] = "user";
+            $_SESSION['userID'] = $usrId;
             header('Location: index.php');
         } else {
             echo '<div class=container>'."\n"

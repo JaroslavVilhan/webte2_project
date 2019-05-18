@@ -5,7 +5,8 @@ session_start();
 if(!isset($_SESSION['user'])) {
     header('Location: login.php');
 }
-$_SESSION['userType'] = 'admin';
+
+//$_SESSION['userType'] = 'admin';
 //echo $_SESSION['user'];
 
 $words = getDictionary();

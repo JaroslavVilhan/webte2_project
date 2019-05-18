@@ -193,6 +193,12 @@
       "sk": "Zobraziť PDF"
     }
   },
+  "userPage1": {
+    "emptyResult": {
+      "en": "No results found",
+      "sk": "Nenašli sa žiadne výsledky"
+    }
+  },
   "adminPage2": {
     ".": {
       "en": ".",
