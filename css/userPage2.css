@@ -1,0 +1,27 @@
+#selForm{
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid darkslategray;
+    box-shadow: 5px 10px 8px #888888;
+}
+
+.totalPoints{
+    font-weight: bold;
+    font-size: x-large;
+    margin-left: 10px;
+}
+
+.totalPointsTitle{
+    color: darkred;
+    font-weight: bold;
+}
+
+.stateTextAdmin {
+    position: relative;
+    float: right;
+    color: darkgreen;
+}
+
+.inputStudentValue{
+    max-width: 100px;
+}

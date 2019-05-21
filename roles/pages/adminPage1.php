@@ -19,7 +19,7 @@ $file = 'adminPage1';
 doHTMLHeader($lang, $words['homePage']['adminPage1Title'][$lang], "adminPage1", '../../');
 require_once("../navBar.php");
 
-//---------------------------------ziskanie aktualneho roku pre formular---------------------------------------------
+//---------------------------------ziskanie aktualneho akademickeho roku pre formular---------------------------------------------
 $date = date('Y-m-d');
 $timeArray = explode("-", $date);
 $year = "";
@@ -34,7 +34,7 @@ $mysqli = new mysqli($hostname, $username, $password, $dbname);
 if ($mysqli->connect_error) die("Connection failed: " . $mysqli->connect_error);
 $mysqli->query("SET NAMES 'utf8'");
 
-//--------------------------zistovanie dostupnych predmetov v databaze pre aktualny rok---------------------------------
+//--------------------------zistovanie dostupnych predmetov v databaze pre aktualny akad. rok---------------------------------
 
 $predmety = array();
 $predmety2 = array();
@@ -45,6 +45,10 @@ $counter=0;
 $query = "SELECT Nazov"
     . " FROM Predmet WHERE Rok='$ZSyear'";
 $result = $mysqli->query($query);
+if ($result === FALSE) {
+    echo "Error: " . $query . "<br>" . $mysqli->error;
+    die();
+}
 while($obj = $result->fetch_object()) {
     $predmety[$counter] = $obj->Nazov;
     $counter++;
@@ -55,6 +59,10 @@ $counter=0;
 $query = "SELECT Nazov"
     . " FROM Predmet WHERE Rok='$LSyear'";
 $result = $mysqli->query($query);
+if ($result === FALSE) {
+    echo "Error: " . $query . "<br>" . $mysqli->error;
+    die();
+}
 while($obj = $result->fetch_object()) {
     $predmety2[$counter]=$obj->Nazov;
     $counter++;
@@ -84,7 +92,15 @@ if(isset($_GET['success'])){
     echo '<div class=container>'."\n"
         .'<div class="alert alert-success" role="alert">'."\n"
         .'<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'."\n"
-        .'<strong>Success! </strong>'.$words['adminPage1']['successError'][$lang].".\n"
+        .'<strong>Success! </strong>'.$words['adminPage1']['successMessage'][$lang].".\n"
+        .'</div>'."\n"
+        .'</div>';
+}
+if(isset($_GET['success2'])){
+    echo '<div class=container>'."\n"
+        .'<div class="alert alert-success" role="alert">'."\n"
+        .'<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'."\n"
+        .'<strong>Success! </strong>'.$words['adminPage1']['successMessage2'][$lang].".\n"
         .'</div>'."\n"
         .'</div>';
 }
@@ -106,7 +122,7 @@ if(isset($_GET['success'])){
     <form action="adminPage1.php?form=1" method="post" enctype="multipart/form-data" id="selForm1">
         <h3 class="text-center"><?php echo $words['adminPage1']['form1Head'][$lang];?></h3>
         <div class="form-group">
-            <label for="form1rok"><?php echo $words['adminPage1']['formYear'][$lang];?>:</label>
+            <label for="form1rok"><?php echo $words['adminPage1']['formYear'][$lang];?> (<?php echo $words['adminPage1']['formYearInfo'][$lang];?>):</label>
             <select class="form-control" id="form1rok" name="form1year">
                 <option value="<?php echo 'ZS '.$year;?>" selected><?php echo 'ZS '.$year;?></option>
                 <option value="<?php echo 'LS '.$year;?>"><?php echo 'LS '.$year;?></option>
@@ -221,6 +237,7 @@ if(isset($_GET['success'])){
 if(isset($_GET['form'])){
     switch ($_GET['form']){
         case "1":{
+            $insertResults = false;
             if(isset($_POST['form1year']) && isset($_POST['submit'])){
 
                 $nazov=trim($_POST['form1newCourse']);
@@ -304,6 +321,7 @@ if(isset($_GET['form'])){
                               die();
                             }
                         }
+                        $insertResults=true;
                     }else{
                         echo 'ERROR FILE !';
                     }
@@ -332,7 +350,7 @@ if(isset($_GET['form'])){
                         $lines = explode("\n", $string);
                         $head = explode(trim($_POST['form1delimiter']), $lines[0]);
 
-                        $sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$tableName'";
+                        $sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '$dbname' AND TABLE_NAME = '$tableName'";
                         $result = $mysqli->query($sql);
                         $resultArray = $result->fetch_all(MYSQLI_NUM);
                         $IdName = $resultArray[0][0];
@@ -400,13 +418,24 @@ if(isset($_GET['form'])){
                                 }
                             }
                         }
+                        $insertResults=true;
 
                     }else{
                         echo 'ERROR FILE !';
                     }
                 }
+            } else{
+                $mysqli->close();
+                header('Location: adminPage1.php?fillError=1');
+                die();
+            }
+            $mysqli->close();
+            if($insertResults == true){
+                header('Location: adminPage1.php?success2=1');
+                die();
             }
             header('Location: adminPage1.php');
+            die();
             break;
         }
 
@@ -425,7 +454,7 @@ if(isset($_GET['form'])){
 
                 //-------------------vypis tabulky-------------------------------------------------
                 //----ziskanie nazvov stlpcov----------
-                $sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$tableName'";
+                $sql = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '$dbname' AND TABLE_NAME = '$tableName'";
                 $result = $mysqli->query($sql);
                 $resultArrayHead = $result->fetch_all(MYSQLI_NUM);
 
@@ -437,7 +466,7 @@ if(isset($_GET['form'])){
                 //------vypis-----
                 $finalTable= '<div class="container mt-5">' . "\n"
                     .'<h2>'.$predmet.' - '.$rok.'</h2>' . "\n"
-                    .'<table class="table">' . "\n"
+                    .'<table class="table table-striped table-responsive-sm">' . "\n"
                     .'<thead class="thead-dark">' . "\n"
                     .'<tr>' . "\n";
 
@@ -467,11 +496,12 @@ if(isset($_GET['form'])){
                 $_SESSION['tableHead']=$resultArrayHead;
                 $_SESSION['tableValues']=$resultArrayValues;
 
-                echo '<p><a class="btn btn-primary" href="printTable.php">'.$words['adminPage1']['viewPDF'][$lang].'</a></p>'  . "\n"
+                echo '<p><a class="btn btn-primary" href="printTable.php" target="_blank">'.$words['adminPage1']['viewPDF'][$lang].'</a></p>'  . "\n"
                     .'</div>' . "\n";
 
             }
             else{
+                $mysqli->close();
                 header('Location: adminPage1.php?fillError=1');
                 die();
             }
@@ -500,8 +530,11 @@ if(isset($_GET['form'])){
                 $sql = "DROP TABLE `$tableName`";
                 $result = $mysqli->query($sql);
 
+                $mysqli->close();
                 header('Location: adminPage1.php?success=1');
+                die();
             }else{
+                $mysqli->close();
                 header('Location: adminPage1.php?fillError=1');
                 die();
             }

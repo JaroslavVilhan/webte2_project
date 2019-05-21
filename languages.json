@@ -37,12 +37,12 @@
       "sk" : "Hodnotenie tímu"
     },
     "adminPage1Content" : {
-      "en" : "Entering results via form and also option for overview.",
-      "sk" : "Zadávanie výsledkov prostredníctvom formuláru a aj možnosť následného prehľadu."
+      "en" : "Entering results via form, option for overview, deleting results.",
+      "sk" : "Zadávanie výsledkov prostredníctvom formuláru, prehľad výsledkov, vymazávanie výsledkov."
     },
     "adminPage2Content" : {
-      "en" : "Entering students via form, granting consent for the distribution of points, viewing teams, team statistics.",
-      "sk" : "Zadávanie študentov prostredníctvom formuláru, výpis jednotlivých tímov, udeľovanie súhlasu o prerozdelení bodov, štatistické údaje o jednotlivých tímoch."
+      "en" : "Entering students via form, viewing teams, adding points for teams, granting consent for the distribution of points, team statistics.",
+      "sk" : "Zadávanie študentov prostredníctvom formuláru, výpis jednotlivých tímov, zadávanie bodov pre tímy, udeľovanie súhlasu o prerozdelení bodov, štatistické údaje o jednotlivých tímoch."
     },
     "adminPage3Content" : {
       "en" : "Generating and distributing passwords and data needed to login to the server.",
@@ -140,6 +140,10 @@
       "en": "Year",
       "sk": "Rok"
     },
+    "formYearInfo": {
+      "en": "Current acad. year",
+      "sk": "Aktuálny akad. rok"
+    },
     "formCourse": {
       "en": "Course",
       "sk": "Predmet"
@@ -184,9 +188,17 @@
       "en": "No option was selected",
       "sk": "Nebola vybraná možnosť"
     },
-    "successError": {
-      "en": "Course was successfully deleted",
+    "successMessage": {
+      "en": "The course has been successfully deleted",
       "sk": "Predmet bol úspešne vymazaný"
+    },
+    "successMessage2": {
+      "en": "The results have been successfully inserted",
+      "sk": "Výsledky boli úspešne vložené"
+    },
+    "successMessage3": {
+      "en": "The students have been successfully inserted",
+      "sk": "Študenti boli úspešne vložení"
     },
     "viewPDF": {
       "en": "View PDF",
@@ -200,15 +212,89 @@
     }
   },
   "adminPage2": {
-    ".": {
-      "en": ".",
-      "sk": "."
+    "option1": {
+      "en": "Import students",
+      "sk": "Zadať študentov"
+    },
+    "option2": {
+      "en": "Show teams",
+      "sk": "Zobraziť tímy"
+    },
+    "option3": {
+      "en": "View statistics",
+      "sk": "Zobraziť štatistiku"
+    },
+    "form1Head": {
+      "en": "Importing students",
+      "sk": "Importovanie študentov"
+    },
+    "form2Head": {
+      "en": "Displaying teams",
+      "sk": "Zobrazovanie tímov"
+    },
+    "form3Head": {
+      "en": "View statistics",
+      "sk": "Zobraziť štatistiku"
+    },
+    "Team": {
+      "en": "Team",
+      "sk": "Tím"
+    },
+    "AddPointsButton": {
+      "en": "Add",
+      "sk": "Vložiť"
+    },
+    "Points": {
+      "en": "Points",
+      "sk": "Body"
+    },
+    "StateMessageY": {
+      "en": "You agree with the students divided points",
+      "sk": "Súhlasíte z rozdelením bodov medzi študentami"
+    },
+    "StateMessageN": {
+      "en": "You don't agree with the students divided points",
+      "sk": "Nesúhlasíte z rozdelením bodov medzi študentami"
+    },
+    "StateButtonN": {
+      "en": "I disagree",
+      "sk": "Nesúhlasím"
+    },
+    "StateButtonY": {
+      "en": "I agree",
+      "sk": "Súhlasím"
+    },
+    "ExportToCSV": {
+      "en": "Export to CSV",
+      "sk": "Export do CSV"
+    }
+  },
+  "userPage2": {
+    "emptyResult": {
+      "en": "No results found",
+      "sk": "Nenašli sa žiadne výsledky"
+    },
+    "StateMessageY": {
+      "en": "Admin agree with the students divided points",
+      "sk": "Admin súhlasí z rozdelením bodov medzi študentami"
+    },
+    "StateMessageN": {
+      "en": "Admin don't agree with the students divided points",
+      "sk": "Admin nesúhlasí z rozdelením bodov medzi študentami"
+    },
+    "Points": {
+      "en": "Total points",
+      "sk": "Body celkovo"
+    },
+    "BackButton": {
+      "en": "Back to selection",
+      "sk": "Späť na výber"
     }
   },
   "adminPage3": {
-    ".": {
-      "en": ".",
-      "sk": "."
+    "...": {
+      "en": "...",
+      "sk": "..."
     }
   }
 }

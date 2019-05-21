@@ -1,0 +1,20 @@
+#selForm1, #selForm2, #selForm3{
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid darkslategray;
+    box-shadow: 5px 10px 8px #888888;
+}
+#selPredmetButton{
+    min-width: 107px;
+}
+
+.pointsButt{
+    margin: 10px 0;
+    min-width: 50px;
+}
+
+.stateTextAdmin {
+    position: relative;
+    float: right;
+    color: darkgreen;
+}

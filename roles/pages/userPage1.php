@@ -48,7 +48,7 @@ while($obj = $result->fetch_object()) {
             //-----vypis tabulky---------------------
             $finalTable= '<div class="container mt-5">' . "\n"
                 .'<h2>'.$predmet.' - '.$rok.'</h2>' . "\n"
-                .'<table class="table">' . "\n"
+                .'<table class="table table-responsive-sm">' . "\n"
                 .'<thead class="thead-dark">' . "\n"
                 .'<tr>' . "\n";
 

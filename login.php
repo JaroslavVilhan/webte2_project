@@ -1,5 +1,6 @@
 <?php
 require_once("basic_doc_fns.php");
+require_once("config.php");
 
 $words = getDictionary();
 $lang = getCurrentLanguage($_GET['lang'], $words);
@@ -65,12 +66,79 @@ if(isset($_POST['login']) && isset($_POST['password'])){
                 .'</div>';
         }
     } else if($_GET['method']=='local'){
-        $_SESSION['userType'] = "user";
-        header('Location: index.php');
+        $login = $_POST['login'];
+        $heslo = $_POST['password'];
+
+        //----------------------------pripojenie k databaze---------------------------------------------
+        $mysqli = new mysqli($hostname, $username, $password, $dbname3);
+        if ($mysqli->connect_error) die("Connection failed: " . $mysqli->connect_error);
+        $mysqli->query("SET NAMES 'utf8'");
+
+        //--------------------autentifikacia------------------------------------------------------------
+        $query1 = "SELECT StudentId, FullName, `Password` FROM studentAccount WHERE `Login` = '$login'";
+        $result = $mysqli->query($query1);
+
+        if($result->num_rows > 0) {
+            $obj = $result->fetch_object();
+            if (password_verify($heslo, $obj->Password)) {
+                $_SESSION['user'] = $obj->FullName;
+                $_SESSION['userType'] = "user";
+                $_SESSION['userID'] = $obj->StudentId;
+                header('Location: index.php');
+                exit();
+            }
+            echo '<div class=container>'."\n"
+                .'<div class="alert alert-danger" role="alert">'."\n"
+                .'<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'."\n"
+                .'<span class="bold">Error: </span>'.$words['loginPage']['loginError'][$lang]."\n"
+                .'</div>'."\n"
+                .'</div>';
+        }else {
+            echo '<div class=container>'."\n"
+                .'<div class="alert alert-danger" role="alert">'."\n"
+                .'<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'."\n"
+                .'<span class="bold">Error: </span>'.$words['loginPage']['loginError'][$lang]."\n"
+                .'</div>'."\n"
+                .'</div>';
+        }
 
     } else if($_GET['method']=='admin'){
-        $_SESSION['userType'] = "admin";
-        header('Location: index.php');
+        $login = $_POST['login'];
+        $heslo = $_POST['password'];
+
+        //----------------------------pripojenie k databaze---------------------------------------------
+        $mysqli = new mysqli($hostname, $username, $password, $dbname3);
+        if ($mysqli->connect_error) die("Connection failed: " . $mysqli->connect_error);
+        $mysqli->query("SET NAMES 'utf8'");
+
+        //--------------------autentifikacia------------------------------------------------------------
+        $query1 = "SELECT AdminId, `Password` FROM adminAccount WHERE `Login` = '$login'";
+        $result = $mysqli->query($query1);
+
+        if($result->num_rows > 0) {
+            while($obj = $result->fetch_object()) {
+                if (password_verify($heslo, $obj->Password)) {
+                    $_SESSION['user'] = $login;
+                    $_SESSION['userType'] = "admin";
+                    $_SESSION['userID'] = $obj->AdminId;
+                    header('Location: index.php');
+                    exit();
+                }
+            }
+            echo '<div class=container>'."\n"
+                .'<div class="alert alert-danger" role="alert">'."\n"
+                .'<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'."\n"
+                .'<span class="bold">Error: </span>'.$words['loginPage']['loginError'][$lang]."\n"
+                .'</div>'."\n"
+                .'</div>';
+        }else {
+            echo '<div class=container>'."\n"
+                .'<div class="alert alert-danger" role="alert">'."\n"
+                .'<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'."\n"
+                .'<span class="bold">Error: </span>'.$words['loginPage']['loginError'][$lang]."\n"
+                .'</div>'."\n"
+                .'</div>';
+        }
     }
 }
 ?>

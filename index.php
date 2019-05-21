@@ -6,9 +6,6 @@ if(!isset($_SESSION['user'])) {
     header('Location: login.php');
 }
 
-//$_SESSION['userType'] = 'admin';
-//echo $_SESSION['user'];
-
 $words = getDictionary();
 $lang = getCurrentLanguage($_GET['lang'], $words);
 $flag = getFlag($lang);
