@@ -229,7 +229,7 @@ if(isset($_GET['success2'])){
                 ?>
             </select>
         </div>
-        <button type="submit" name="submit" class="btn btn-primary mt-3"><?php echo $words['adminPage1']['formDelete'][$lang];?></button>
+        <button type="submit" name="submit" class="btn btn-primary mt-3"><?php echo $words['adminPage1']['formChoose'][$lang];?></button>
     </form>
 </div>
 
@@ -583,8 +583,75 @@ if(isset($_GET['form'])){
                 $id = $obj->PredmetId;
                 $tableName = 't'.$id;
 
+                //-----------------------------data pre statistiku----------------------------------
+                $pocetStudentov='';
+                $pocetSuhlasiacichStudentov='';
+                $pocetNesuhlasiacichStudentov='';
+                $pocetNevyjadrenychStudentov='';
+                $pocetTimov='';
+                $pocetUzavretychTimov='';
+                $pocetNeuzavretychTimov='';
+                $pocetTimovBezKompletnychVyjadreni='';
+                //-----------------------------------------------------------------------------------
 
-                header('Location: adminPage1.php?success=1');
+                $sql = "SELECT COUNT(*) AS pocet FROM `$tableName`";
+                $result = $mysqli->query($sql);
+                $obj = $result->fetch_object();
+                $pocetStudentov = $obj->pocet;
+
+                $sql = "SELECT COUNT(*) AS pocet FROM `$tableName` WHERE `StudentAgree` = 'Y'";
+                $result = $mysqli->query($sql);
+                $obj = $result->fetch_object();
+                $pocetSuhlasiacichStudentov = $obj->pocet;
+
+                $sql = "SELECT COUNT(*) AS pocet FROM `$tableName` WHERE `StudentAgree` = 'N'";
+                $result = $mysqli->query($sql);
+                $obj = $result->fetch_object();
+                $pocetNesuhlasiacichStudentov = $obj->pocet;
+
+                $sql = "SELECT COUNT(*) AS pocet FROM `$tableName` WHERE `StudentAgree` = '-'";
+                $result = $mysqli->query($sql);
+                $obj = $result->fetch_object();
+                $pocetNevyjadrenychStudentov = $obj->pocet;
+
+                $sql = "SELECT DISTINCT `Team` FROM `$tableName` WHERE `StudentAgree` = '-'";
+                $result = $mysqli->query($sql);
+                $pocetTimov = $result->num_rows;
+
+                $sql = "SELECT DISTINCT `Team` FROM `$tableName` WHERE `AdminAgree` <> '-'";
+                $result = $mysqli->query($sql);
+                $pocetUzavretychTimov = $result->num_rows;
+
+                $sql = "SELECT DISTINCT `Team` FROM `$tableName` WHERE `AdminAgree` = '-'";
+                $result = $mysqli->query($sql);
+                $pocetNeuzavretychTimov = $result->num_rows;
+
+                $sql = "SELECT DISTINCT `Team` FROM `$tableName` WHERE `StudentAgree` = '-'";
+                $result = $mysqli->query($sql);
+                $pocetTimovBezKompletnychVyjadreni = $result->num_rows;
+
+
+                echo '<script type="text/javascript">',
+                    'viewGraph(\''.$lang.'\', '.$pocetStudentov.', '.$pocetSuhlasiacichStudentov.', '.$pocetNesuhlasiacichStudentov.', '.$pocetNevyjadrenychStudentov.');',
+                    'viewGraph2(\''.$lang.'\', '.$pocetTimov.', '.$pocetUzavretychTimov.', '.$pocetNeuzavretychTimov.', '.$pocetTimovBezKompletnychVyjadreni.');',
+                '</script>';
+
+                echo '<div class="container d-flex flex-column">'."\n"
+                            .'<div class="p-2"><h1 class="my-5 text-center">'.$words['adminPage2']['Statistics1'][$lang].'</h1></div>'."\n"
+                            .'<p class="mr-auto">'.$words['adminPage2']['StatisticsStudentTitle1'][$lang].': <span class="statisticValues">'.$pocetStudentov.'</span></p>'."\n"
+                            .'<p class="mr-auto">'.$words['adminPage2']['StatisticsStudentTitle2'][$lang].': <span class="statisticValues">'.$pocetSuhlasiacichStudentov.'</span></p>'."\n"
+                            .'<p class="mr-auto">'.$words['adminPage2']['StatisticsStudentTitle3'][$lang].': <span class="statisticValues">'.$pocetNesuhlasiacichStudentov.'</span></p>'."\n"
+                            .'<p class="mr-auto">'.$words['adminPage2']['StatisticsStudentTitle4'][$lang].': <span class="statisticValues">'.$pocetNevyjadrenychStudentov.'</span></p>'."\n"
+                            .'<div class="p-2" id="chartdiv"></div>'."\n"
+                            .'<hr>'."\n"
+                            .'<div class="p-2"><h1 class="my-5 text-center">'.$words['adminPage2']['Statistics2'][$lang].'</h1></div>'."\n"
+                            .'<p class="mr-auto">'.$words['adminPage2']['StatisticsTeamTitle1'][$lang].': <span class="statisticValues">'.$pocetTimov.'</span></p>'."\n"
+                            .'<p class="mr-auto">'.$words['adminPage2']['StatisticsTeamTitle2'][$lang].': <span class="statisticValues">'.$pocetUzavretychTimov.'</span></p>'."\n"
+                            .'<p class="mr-auto">'.$words['adminPage2']['StatisticsTeamTitle3'][$lang].': <span class="statisticValues">'.$pocetNeuzavretychTimov.'</span></p>'."\n"
+                            .'<p class="mr-auto">'.$words['adminPage2']['StatisticsTeamTitle4'][$lang].': <span class="statisticValues">'.$pocetTimovBezKompletnychVyjadreni.'</span></p>'."\n"
+                            .'<div class="p-2 justify-content-center" id="chartdiv2"></div>'."\n"
+                    .'</div>';
+
             }else{
                 header('Location: adminPage1.php?fillError=1');
                 die();

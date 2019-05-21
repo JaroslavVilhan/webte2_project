@@ -139,7 +139,7 @@ function studentSendAgree(state, id, team, table, messID, ButtID, lang) {
 
         if(lang == 'sk') {
             bootbox.confirm({
-                message: "Si si itý?",
+                message: "Prosím potvrdte možnosť...",
                 locale: 'sk',
                 callback: function (result) {
                     if (result == true){
@@ -347,6 +347,107 @@ function manageStudentsAjaxCalls(team, tableName, messID, lang, studentID){
 function hideSelectCell(){
     $('#selForm').hide();
 }
+
+function viewGraph(lang, p1, p2, p3, p4){
+    am4core.ready(function() {
+        console.log(p1);
+        am4core.useTheme(am4themes_animated);
+        var chart = am4core.create("chartdiv", am4charts.PieChart);
+
+        if(lang == 'sk') {
+            chart.data = [{
+                "country": "Počet študentov",
+                "litres": p1
+            }, {
+                "country": "Počet súhlasiacich študentov",
+                "litres": p2
+            }, {
+                "country": "Počet nesúhlasiacich študentov",
+                "litres": p3
+            }, {
+                "country": "Počet nevyjadrených študentov",
+                "litres": p4
+            }];
+        }else {
+            chart.data = [{
+                "country": "Number of students",
+                "litres": p1
+            }, {
+                "country": "Student agree",
+                "litres": p2
+            }, {
+                "country": "Student disagree",
+                "litres": p3
+            }, {
+                "country": "Students with no response",
+                "litres": p4
+            }];
+        }
+        var pieSeries = chart.series.push(new am4charts.PieSeries());
+        pieSeries.dataFields.value = "litres";
+        pieSeries.dataFields.category = "country";
+        pieSeries.slices.template.stroke = am4core.color("#fff");
+        pieSeries.slices.template.strokeWidth = 2;
+        pieSeries.slices.template.strokeOpacity = 1;
+
+        pieSeries.hiddenState.properties.opacity = 1;
+        pieSeries.hiddenState.properties.endAngle = -90;
+        pieSeries.hiddenState.properties.startAngle = -90;
+
+    });
+}
+
+function viewGraph2(lang, p1, p2, p3, p4){
+    am4core.ready(function() {
+        am4core.useTheme(am4themes_animated);
+        var chart = am4core.create("chartdiv2", am4charts.PieChart);
+
+
+        if(lang == 'sk') {
+            chart.data = [{
+                "country": "Počet tímov",
+                "litres": p1
+            }, {
+                "country": "Počet uzavretých tímov",
+                "litres": p2
+            }, {
+                "country": "Počet neuzavretých tímov",
+                "litres": p3
+            }, {
+                "country": "Počet tímov s nekompletnými vyjadreniami",
+                "litres": p4
+            }];
+        }else {
+            chart.data = [{
+                "country": "Number of teams",
+                "litres": p1
+            }, {
+                "country": "Closed teams",
+                "litres": p2
+            }, {
+                "country": "Unclosed teams",
+                "litres": p3
+            }, {
+                "country": "Teams with no complete answers",
+                "litres": p4
+            }];
+        }
+
+        var pieSeries = chart.series.push(new am4charts.PieSeries());
+        pieSeries.dataFields.value = "litres";
+        pieSeries.dataFields.category = "country";
+        pieSeries.slices.template.stroke = am4core.color("#fff");
+        pieSeries.slices.template.strokeWidth = 2;
+        pieSeries.slices.template.strokeOpacity = 1;
+
+        pieSeries.hiddenState.properties.opacity = 1;
+        pieSeries.hiddenState.properties.endAngle = -90;
+        pieSeries.hiddenState.properties.startAngle = -90;
+
+    });
+}
+
+
 
 $(document).ready(function(){
     $('#selForm1').hide();

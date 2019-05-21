@@ -267,6 +267,46 @@
     "ExportToCSV": {
       "en": "Export to CSV",
       "sk": "Export do CSV"
+    },
+    "Statistics1": {
+      "en": "Student statistics",
+      "sk": "Štatistika študentov"
+    },
+    "Statistics2": {
+      "en": "Team statistics",
+      "sk": "Štatistika tímov"
+    },
+    "StatisticsStudentTitle1": {
+      "en": "Number of students",
+      "sk": "Počet študentov"
+    },
+    "StatisticsStudentTitle2": {
+      "en": "Student agree",
+      "sk": "Počet súhlasiacich študentov"
+    },
+    "StatisticsStudentTitle3": {
+      "en": "Student disagree",
+      "sk": "Počet nesúhlasiacich študentov"
+    },
+    "StatisticsStudentTitle4": {
+      "en": "Students with no response",
+      "sk": "Počet nevyjadrených študentov"
+    },
+    "StatisticsTeamTitle1": {
+      "en": "Number of teams",
+      "sk": "Počet tímov"
+    },
+    "StatisticsTeamTitle2": {
+      "en": "Closed teams",
+      "sk": "Počet uzavretých tímov"
+    },
+    "StatisticsTeamTitle3": {
+      "en": "Unclosed teams",
+      "sk": "Počet neuzavretých tímov"
+    },
+    "StatisticsTeamTitle4": {
+      "en": "Teams with no complete answers",
+      "sk": "Počet tímov s nekompletnými vyjadreniami"
     }
   },
   "userPage2": {

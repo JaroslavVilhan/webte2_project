@@ -55,7 +55,11 @@ function doHTMLHeader($lang, $title, $cssName, $cssPrefix=''){
         ."\t".'<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>'."\n"
         ."\t".'<script src="'.$cssPrefix.'js/bootbox.min.js"></script>'."\n"
         ."\t".'<script src="'.$cssPrefix.'js/bootbox.locales.min.js"></script>'."\n"
-    .'</head>'."\n"
+        ."\t".'<script src="https://www.amcharts.com/lib/4/core.js"></script>'."\n"
+        ."\t".'<script src="https://www.amcharts.com/lib/4/charts.js"></script>'."\n"
+        ."\t".'<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>'."\n"
+
+        .'</head>'."\n"
     .'<body>'."\n";
 
 }

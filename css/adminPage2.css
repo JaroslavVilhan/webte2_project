@@ -18,3 +18,13 @@
     float: right;
     color: darkgreen;
 }
+
+#chartdiv, #chartdiv2 {
+    height: 300px;
+    width: 100%;
+}
+
+.statisticValues{
+    font-weight: bold;
+    margin-left: 5px;
+}
