@@ -107,7 +107,7 @@ if(isset($_GET['success2'])){
 
 ?>
 
-<div class="container">
+<div class="container" id="selFormContainer">
     <label for="sel1"><?php echo $words['adminPage1']['selectTitle'][$lang];?>:</label>
     <div class="d-flex flex-row">
     <select class="form-control mr-2" id="sel1">
@@ -496,7 +496,7 @@ if(isset($_GET['form'])){
                 $_SESSION['tableHead']=$resultArrayHead;
                 $_SESSION['tableValues']=$resultArrayValues;
 
-                echo '<p><a class="btn btn-primary" href="adminPage1printTable.php" target="_blank">' .$words['adminPage1']['viewPDF'][$lang].'</a></p>'  . "\n"
+                echo '<p><a class="btn btn-primary printButtonHide" href="adminPage1printTable.php" target="_blank">' .$words['adminPage1']['viewPDF'][$lang].'</a></p>'  . "\n"
                     .'</div>' . "\n";
 
             }

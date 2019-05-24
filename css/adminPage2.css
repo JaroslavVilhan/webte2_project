@@ -28,3 +28,9 @@
     font-weight: bold;
     margin-left: 5px;
 }
+
+@media print {
+    #selFormContainer2 {
+        display: none;
+    }
+}

@@ -7,3 +7,12 @@
 #selPredmetButton{
     min-width: 107px;
 }
+
+@media print {
+    .printButtonHide {
+        display: none;
+    }
+    #selFormContainer {
+        display: none;
+    }
+}

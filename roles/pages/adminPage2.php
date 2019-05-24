@@ -111,7 +111,7 @@ if(isset($_GET['success2'])){
 
 ?>
 
-<div class="container">
+<div class="container" id="selFormContainer2">
     <label for="sel1"><?php echo $words['adminPage1']['selectTitle'][$lang];?>:</label>
     <div class="d-flex flex-row">
     <select class="form-control mr-2" id="sel1">
