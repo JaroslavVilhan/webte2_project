@@ -48,6 +48,7 @@ function doHTMLHeader($lang, $title, $cssName, $cssPrefix=''){
         ."\t".'<link rel="stylesheet" href="'.$cssPrefix.'css/all.css">'."\n"
         ."\t".'<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">'."\n"
         ."\t".'<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">'."\n"
+        ."\t".'<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">'."\n"
         ."\t".'<link rel="shortcut icon" href="'.$cssPrefix.'img/st.png">'."\n"
         ."\t".'<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>'."\n"
         ."\t".'<script src="'.$cssPrefix.'js/script.js"></script>'."\n"
@@ -58,6 +59,9 @@ function doHTMLHeader($lang, $title, $cssName, $cssPrefix=''){
         ."\t".'<script src="https://www.amcharts.com/lib/4/core.js"></script>'."\n"
         ."\t".'<script src="https://www.amcharts.com/lib/4/charts.js"></script>'."\n"
         ."\t".'<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>'."\n"
+        ."\t".'<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>'."\n"
+        ."\t".'<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>'."\n"
+        ."\t".'<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>'."\n"
 
         .'</head>'."\n"
     .'<body>'."\n";
@@ -78,4 +82,15 @@ function generatePassword($length) {
         $pass[] = $alphabet[$n];
     }
     return implode($pass);
+}
+
+function replace($array, $template){
+    foreach($array as $key => $value) {
+        $template = str_replace('{{' . $key . '}}', $value, $template);
+    }
+    return $template;
+}
+
+function getcookie($name){
+    return $_COOKIE[$name];
 }

@@ -448,7 +448,6 @@ function viewGraph2(lang, p1, p2, p3, p4){
 }
 
 
-
 $(document).ready(function(){
     $('#selForm1').hide();
     $('#selForm2').hide();
@@ -499,6 +498,15 @@ $(document).ready(function(){
             $("#form3predmet option[hideopt='1']").hide();
             $("#form3predmet option[year='" + selectYear + "']").show();
         }
+    });
+
+    $('#sendForm').submit(function() {
+        var string = $(".ql-editor").html();
+        document.cookie = "var1="+string;
+    });
+
+    $(document).ready(function() {
+        $('#historyTable').DataTable();
     });
 
 });

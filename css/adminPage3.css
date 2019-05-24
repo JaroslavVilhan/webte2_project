@@ -1,0 +1,28 @@
+#selForm1, #selForm2, #selForm3, #sendForm{
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid darkslategray;
+    box-shadow: 5px 10px 8px #888888;
+}
+#sendForm{
+    margin-top: 20px;
+    border: 2px solid darkslategray;
+    box-shadow: 5px 10px 8px #888888;
+}
+#selPredmetButton{
+    min-width: 107px;
+}
+
+#editor-container {
+    height: 500px;
+}
+
+.textTemplate{
+    background-color: #900000;
+    padding: 15px 0;
+    color: white;
+}
+
+.btn-secondary:hover , .hisTabHead:hover{
+    cursor:pointer;
+}

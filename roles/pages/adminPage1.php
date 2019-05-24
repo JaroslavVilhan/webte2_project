@@ -496,7 +496,7 @@ if(isset($_GET['form'])){
                 $_SESSION['tableHead']=$resultArrayHead;
                 $_SESSION['tableValues']=$resultArrayValues;
 
-                echo '<p><a class="btn btn-primary" href="printTable.php" target="_blank">'.$words['adminPage1']['viewPDF'][$lang].'</a></p>'  . "\n"
+                echo '<p><a class="btn btn-primary" href="adminPage1printTable.php" target="_blank">' .$words['adminPage1']['viewPDF'][$lang].'</a></p>'  . "\n"
                     .'</div>' . "\n";
 
             }

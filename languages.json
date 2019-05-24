@@ -332,9 +332,101 @@
     }
   },
   "adminPage3": {
-    "...": {
-      "en": "...",
-      "sk": "..."
+    "form1Head": {
+      "en": "Insert data (1.input)",
+      "sk": "Vložiť údaje (1.vstup)"
+    },
+    "Download": {
+      "en": "Download file",
+      "sk": "Stiahnuť súbor"
+    },
+    "Back": {
+      "en": "Back to select",
+      "sk": "Naspäť na výber"
+    },
+    "form2Head": {
+      "en": "Send Email (2.input)",
+      "sk": "Poslať mail (2.vstup)"
+    },
+    "form3Head": {
+      "en": "View history",
+      "sk": "Zobraziť históriu"
+    },
+    "ChooseTemp": {
+      "en": "Choose template",
+      "sk": "Vyber si šablónu"
+    },
+    "formSubmit": {
+      "en": "Go",
+      "sk": "Prejsť"
+    },
+    "UsedTemplate": {
+      "en": "Used template",
+      "sk": "Použitá šablóna"
+    },
+    "EditTemplate": {
+      "en": "Edit template",
+      "sk": "Upraviť šablónu"
+    },
+    "sendOptions": {
+      "en": "Send as",
+      "sk": "Poslať ako"
+    },
+    "step": {
+      "en": "step",
+      "sk": "krok"
+    },
+    "changeTemplate": {
+      "en": "Save changes",
+      "sk": "Uložiť zmeny"
+    },
+    "successSend": {
+      "en": "Email has been sent successfully !",
+      "sk": "Email bol úspešne odoslaný !"
+    },
+    "fillWindow": {
+      "en": "Fill the following fields",
+      "sk": "Vyplňte nasledovné polia"
+    },
+    "sendEmail": {
+      "en": "Sender's email (only STUBA.SK domain)",
+      "sk": "Email odosielateľa (iba doména STUBA.SK)"
+    },
+    "sendName": {
+      "en": "Sender's name",
+      "sk": "Meno odosielateľa"
+    },
+    "sendSMTPlog": {
+      "en": "SMTP login",
+      "sk": "SMTP login"
+    },
+    "sendSMTPpass": {
+      "en": "SMTP password",
+      "sk": "SMTP heslo"
+    },
+    "sendSubject": {
+      "en": "Subject",
+      "sk": "Predmet"
+    },
+    "sendFile": {
+      "en": "File (optional)",
+      "sk": "Príloha (voliteľná)"
+    },
+    "tableDate": {
+      "en": "Date",
+      "sk": "Dátum"
+    },
+    "tableName": {
+      "en": "Recipient's name",
+      "sk": "Meno príjemcu"
+    },
+    "tableSubject": {
+      "en": "Subject",
+      "sk": "Predmet"
+    },
+    "tableTempID": {
+      "en": "Template ID",
+      "sk": "ID šablóny"
     }
   }
 }
